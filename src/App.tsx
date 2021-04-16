@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import ToastExample from './ToastExample';
+import { NativeModules } from 'react-native';
+const { CalendarModule } = NativeModules;
 
 const App = () => {
   useEffect(() => {
@@ -10,6 +12,13 @@ const App = () => {
   return (
     <View style={styles.container}>
       <Text>Hello</Text>
+
+      <TouchableOpacity
+        onPress={() => {
+          CalendarModule.createCalendarEvent('testName', 'testLocation');
+        }}>
+        <Text>Calendar Module</Text>
+      </TouchableOpacity>
     </View>
   );
 };
