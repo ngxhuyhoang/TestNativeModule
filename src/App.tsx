@@ -3,6 +3,10 @@ import { StyleSheet, Text, View } from 'react-native';
 import ToastExample from './ToastExample';
 
 const App = () => {
+  useEffect(() => {
+    ToastExample.show('Hello World', ToastExample.LONG);
+  }, []);
+
   return (
     <View style={styles.container}>
       <Text>Hello</Text>
