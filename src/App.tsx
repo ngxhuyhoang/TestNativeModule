@@ -1,9 +1,12 @@
+/* eslint-disable react-native/no-inline-styles */
 import React, { useEffect } from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import ToastExample from './ToastExample';
 import { NativeModules } from 'react-native';
-import RCTVideoView from './ViewView';
 const { CalendarModule } = NativeModules;
+import { requireNativeComponent } from 'react-native';
+
+const RCTViewTest = requireNativeComponent('RCTViewTest');
 
 const App = () => {
   useEffect(() => {
@@ -21,9 +24,9 @@ const App = () => {
         <Text>Calendar Module</Text>
       </TouchableOpacity>
 
-      <RCTVideoView
-        url="https://static.videezy.com/system/protected/files/000/019/695/pointing_pink.mp4"
-        style={{ width: 200, height: 200, borderWidth: 1, borderColor: 'red' }}
+      <RCTViewTest
+        backgroundColor="#f00f00"
+        style={{ width: 200, height: 200, borderWidth: 1 }}
       />
     </View>
   );

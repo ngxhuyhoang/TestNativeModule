@@ -22,13 +22,15 @@ public class VideoViewManager extends SimpleViewManager<VideoView> {
     @NonNull
     @Override
     protected VideoView createViewInstance(@NonNull ThemedReactContext reactContext) {
-        return new VideoView(reactContext);
+        VideoView videoView = new VideoView(reactContext);
+        return videoView;
     }
 
     @ReactProp(name = "url")
     public void setVideoPath(VideoView videoView, String urlPath) {
         Uri uri = Uri.parse(urlPath);
         videoView.setVideoURI(uri);
+        videoView.setZOrderOnTop(true);
         videoView.start();
     }
 }
